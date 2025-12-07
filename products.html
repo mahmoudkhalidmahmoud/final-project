@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - RALPH Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+  <header>
+    <img src="ralph/logo.jpg" alt="RALPH Logo" class="logo">
+    <h1>RALPH Store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Shopping Cart</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products">
+      
+      <h2>Our Products</h2>
+    
+
+      <div class="product-list">
+        <div class="product">
+          <img src="ralph/3.jpg" alt="Mens Wear">
+          <p>T-Shirt Slim</p>
+          <span>M >> 2XL</span> <br> <br>
+          <span>Price: 14 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/4.jpg" alt="Mens Wear">
+          <p>T-Shirt Slim</p>
+          <span>M >> 2XL</span> <br> <br>
+          <span>Price: 14 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/5.jpg" alt="Mens Wear">
+          <p>T-Shirt Slim</p>
+          <span>M >> 2XL</span> <br> <br>
+          <span>Price: 15 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/6.jpg" alt="Mens Wear">
+          <p>T-Shirt Slim</p>
+          <span>M >> 2XL</span> <br> <br>
+          <span>Price: 15 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/7.jpg" alt="Mens Wear">
+          <p>T-Shirt Oversize</p>
+          <span>S >> 3XL</span> <br> <br>
+          <span>Price: 11 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+        
+
+        <div class="product">
+          <img src="ralph/8.jpg" alt="Mens Wear">
+          <p>T-Shirt Oversize</p>
+          <span>S >> 3XL</span> <br> <br>
+          <span>Price: 11 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/333.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 13 $ </span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/444.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 12 $ </span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/555.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 14 $</span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+          <div class="product">
+          <img src="ralph/666.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 12 $ </span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/777.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 15 $ </span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+        <div class="product">
+          <img src="ralph/888.jpg" alt="Mens Wear">
+          <p>Shirt Relaxed Fit</p>
+          <span>M >> 3XL</span> <br> <br>
+          <span>Price: 15 $ </span> <br>
+          <button>Add to Cart</button>
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p> RALPH Clothing Store </p>
+    <p> www.instagram.com/ralph_damietta </p>
+  </footer>
+
+<!--javascript-->
+  <script>
+    
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+  
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  
+  
+    const buttons = document.querySelectorAll('.product button');
+    buttons.forEach((btn, index) => {
+      const productDiv = btn.parentElement;
+      const name = productDiv.querySelector('p').textContent;
+      const priceText = productDiv.querySelectorAll('span')[1].textContent;
+      const price = parseFloat(priceText.replace('Price: ', '').replace(' $', ''));
+  
+      btn.addEventListener('click', () => {
+        addToCart(name, price);
+      });
+    });
+  </script>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - RALPH Store</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header>
+    <img src="ralph/logo.jpg" alt="RALPH Logo" class="logo">
+    <h1>RALPH Store</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="cart.html">Shopping Cart</a></li>
+        <li><a href="checkout.html" class="active">Checkout</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="checkout">
+      <h2>Checkout</h2>
+
+      <form action="#" method="post">
+
+        <h3>Customer Info</h3>
+        <label>Full Name:</label>
+        <input type="text" required><br>
+
+        <label>Phone Number:</label>
+        <input type="tel" required><br>
+
+        <label>City:</label>
+        <input type="text" required><br>
+
+        <label>Address:</label>
+        <input type="text" required><br>
+
+        <label>Email (optional):</label>
+        <input type="email"><br><br>
+
+        <h3>Payment Method</h3>
+        <label>
+          <input type="radio" name="payment" value="cash" checked onclick="toggleCardFields(false)"> Cash on Delivery
+        </label><br>
+        <label>
+          <input type="radio" name="payment" value="card" onclick="toggleCardFields(true)"> Credit/Debit Card
+        </label>
+
+        <div id="cardFields" style="display: none; margin-top: 10px;">
+          <label>Card Number:</label>
+          <input type="text" maxlength="16" placeholder="Enter 16-digit card number"><br>
+
+          <label>Card Holder Name:</label>
+          <input type="text"><br>
+
+          <label>Expiry Date (MM/YYYY):</label>
+          <input type="month"><br>
+
+          <label>CVC:</label>
+          <input type="password" maxlength="3" placeholder="3-digit code"><br>
+        </div>
+
+        <br>
+        <button type="submit">Confirm Order</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p> RALPH Clothing Store </p>
+    <p> www.instagram.com/ralph_damietta </p>
+  </footer>
+
+  <script>
+    function toggleCardFields(show) {
+      document.getElementById("cardFields").style.display = show ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
